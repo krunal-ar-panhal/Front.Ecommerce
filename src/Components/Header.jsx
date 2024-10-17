@@ -1,14 +1,18 @@
 import React from "react";
 import { CiSearch, CiUser, CiShoppingCart } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="h-16 shadow-md">
       <div className="h-full container mx-auto flex items-center px-4 justify-between">
         <div>
+          <Link to='/'>
           <p className="font-extrabold text-2xl font-serif text-blue-600 cursor-pointer">
             Let,s <span className="text-green-500">Shop</span>
           </p>
+          </Link>
+          
         </div>
 
         <div className="hidden lg:flex items-center border rounded-lg p-2 focus-within:shadow-md ">
@@ -33,7 +37,9 @@ const Header = () => {
             </div>
           </div>
           <div className="flex items-center">
+            <Link to='/login'>
             <buttton className="bg-black text-white hover:opacity-85 cursor-pointer active:bg-white active:border active:border-black  active:text-black rounded-md p-2"> Log In</buttton>
+            </Link>
           </div>
         </div>
       </div>
