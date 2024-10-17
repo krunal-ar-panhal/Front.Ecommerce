@@ -13,12 +13,14 @@ const App = () => {
     <>
     <BrowserRouter>
     <Header/>
-      <Routes>
+     <div className='h-screen'>
+     <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/forgetpass' element={<ForgetPass/>}/>
       </Routes>
+     </div>
     <Footer/>
     </BrowserRouter>
     </>

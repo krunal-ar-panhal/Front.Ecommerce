@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import imageTobase64 from "../Helper/imagebase64";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,7 +25,18 @@ const Signup = () => {
       };
     });
   };
-
+  
+  const handleuploadPic = async (e) => {
+    const file = e.target.files[0];
+    const imagePic = await imageTobase64(file);
+    setData((prev) => {
+      return {
+        ...prev,
+        profilePic: imagePic,
+      };
+    });
+    console.log("image pic", imagePic);
+  };
  
 
   console.log("log in data", data);
@@ -38,7 +50,7 @@ const Signup = () => {
       <div className="mx-auto container p-4">
         <div className=" py-5 w-full h-auto  bg-stone-100 max-w-md mx-auto border rounded-xl shadow-2xl p-7">
           <div className="w-20 h-20 mx-auto cursor-pointer relative">
-            <img src="/signin.gif" alt="login_logo" className="w-full h-full" />
+            <img src={data.profilePic || "/signin.gif"} alt="login_logo" className="w-full h-full" />
 
             <input
               type="file"
